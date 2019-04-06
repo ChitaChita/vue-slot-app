@@ -1,6 +1,7 @@
 {
   "name": "04-slot-app",
   "version": "0.1.0",
+  "author": "ChitaChita <chita123daa@gmail.com>",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
