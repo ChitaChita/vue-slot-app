@@ -1,5 +1,5 @@
 <template>
-  <transition>
+  <transition appear>
     <div class="modal-mask" >
       <div class="modal-wrapper" v-on:click.self="$emit('close')">
         <div class="modal-container">
@@ -34,7 +34,7 @@ export default {
   height: 100%;
   background-color: rgba(0, 0, 0, .5);
   display: table;
-  transition: opacity .3s ease;
+  transition: opacity .5s ease;
 }
 .modal-wrapper {
   display: table-cell;
@@ -47,9 +47,26 @@ export default {
   background-color: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
-  transition: all .3s ease;
+  transition: all .5s ease;
   font-family: Helvetica, Arial, sans-serif;
   color: red;
-  font-size: 20px
+  font-size: 30px
+}
+.v-enter-active {
+  animation: bounce-in .5s;
+}
+.v-leave-active {
+  animation: bounce-in .5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 </style>
