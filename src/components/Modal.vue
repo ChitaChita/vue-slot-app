@@ -1,13 +1,11 @@
 <template>
-  <transition appear>
-    <div class="modal-mask" >
-      <div class="modal-wrapper" v-on:click.self="$emit('close')">
-        <div class="modal-container">
-          <slot />
-        </div>
+  <div class="modal-mask" >
+    <div class="modal-wrapper" v-on:click.self="$emit('close')">
+      <div class="modal-container">
+        <slot />
       </div>
     </div>
-  </transition>
+  </div>
 </template>
 
 <script>
@@ -51,22 +49,5 @@ export default {
   font-family: Helvetica, Arial, sans-serif;
   color: red;
   font-size: 30px
-}
-.v-enter-active {
-  animation: bounce-in .5s;
-}
-.v-leave-active {
-  animation: bounce-in .5s reverse;
-}
-@keyframes bounce-in {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.5);
-  }
-  100% {
-    transform: scale(1);
-  }
 }
 </style>
