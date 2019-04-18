@@ -1,22 +1,33 @@
 <template>
   <div class="slot-form">
-    <input v-bind:id="slotvalue" class="slot-view" type="text" v-model="value">
+    <!-- <input v-bind:id="slotvalue" class="slot-view" type="img" v-model="value"> -->
+    <img class="slot-view" v-bind:id="slotvalue" :src="value" />
     <input class="slot-button" v-bind:disabled="!canStart" type="button" value="STOP" v-on:click="onSelected">
   </div>
 </template>
 
 <script>
+
+const ImgNames = [
+  require('../assets/bfish.png'),
+  require('../assets/cherry.png'),
+  require('../assets/red7.png'),
+  require('../assets/sacra.png'),
+  require('../assets/ybell.png')
+]
+
 export default {
   data () {
     return {
-      value: '0',
-      valueList: [
-        '0', '1', '2', '3', '4', '5', '6', '7'
-      ],
-      canStart: false,
-      timer: null
+      imgPath: '../assets/',
+      imgNames: ImgNames,
+      value: ImgNames[0], // this.data.imgNames[0]
+      valueList: ImgNames,
+    canStart: false,
+    timer: null
     }
   },
+  
   computed: {
     slotvalue () {
       return 'slot-value-' + this._uid
@@ -38,12 +49,12 @@ export default {
     }
   },
   methods: {
-    changeValue (number) {
-      if (number && Math.abs(number) <= this.valueList.length) {
-        this.value = this.valueList[number]
+    changeValue (images) {
+      if (images && Math.abs(images) <= this.valueList.length) {
+        this.value = this.valueList[images]
       } else {
-        let num = Math.floor(Math.random() * this.valueList.length)
-        this.value = this.valueList[num]
+        let img = Math.floor(Math.random() * this.valueList.length)
+        this.value = this.valueList[img]
       }
     },
     start () {
@@ -69,7 +80,7 @@ export default {
   text-align: center;
   margin: 0 auto;
   width: 11em;
-  height: 12em;
+  height: 13em;
   border: 1px solid black;
 }
 .slot-view {
