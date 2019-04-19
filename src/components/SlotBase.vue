@@ -19,7 +19,6 @@ const ImgNames = [
 export default {
   data () {
     return {
-      imgPath: '../assets/',
       imgNames: ImgNames,
       value: ImgNames[0], // this.data.imgNames[0]
       valueList: ImgNames,

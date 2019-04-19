@@ -1,4 +1,4 @@
-# 04-slot-app
+# slot-app
 
 ## Project setup
 ```
