@@ -2,7 +2,7 @@
   <div class="modal-mask" >
     <div class="modal-wrapper" v-on:click.self="$emit('close')">
       <div class="modal-container">
-        <slot />
+        {{result.reduce((p, x) => p + x, 0)}}
       </div>
     </div>
   </div>
@@ -10,15 +10,13 @@
 
 <script>
 export default {
-  name: 'modal'
-/*
+  name: 'modal',
   props: {
     'result': {
       type: Array,
       required: true
     }
   }
-*/
 }
 </script>
 
