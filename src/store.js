@@ -8,7 +8,7 @@ const store = new Vuex.Store({
   state: {
     stateflg: false,
 
-    result: [
+    result: [12312,142412,4121
     ],
 
     modalflg: false,

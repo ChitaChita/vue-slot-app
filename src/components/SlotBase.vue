@@ -1,7 +1,7 @@
 <template>
   <div class="slot-form">
-    <!-- <input v-bind:id="slotvalue" class="slot-view" type="img" v-model="value"> -->
-    <img class="slot-view" v-bind:id="slotvalue" :src="value" />
+    <!-- <input v-bind:id="slotvalue" class="slot-view" type="text" v-model="value"> -->
+    <img class="slot-view" v-bind:id="slotvalue" :src="value" :point="point"/>
     <input class="slot-button" v-bind:disabled="!canStart" type="button" value="STOP" v-on:click="onSelected">
   </div>
 </template>
@@ -21,6 +21,7 @@ export default {
     return {
       imgNames: ImgNames,
       value: ImgNames[0], // this.data.imgNames[0]
+      point: 0,
       valueList: ImgNames,
     canStart: false,
     timer: null
@@ -48,12 +49,14 @@ export default {
     }
   },
   methods: {
-    changeValue (images) {
-      if (images && Math.abs(images) <= this.valueList.length) {
-        this.value = this.valueList[images]
+    changeValue (imgIndex) {
+      if (imgIndex && Math.abs(imgIndex) <= this.valueList.length) {
+        this.value = this.valueList[imgIndex]
+        this.point = imgIndex
       } else {
-        let img = Math.floor(Math.random() * this.valueList.length)
-        this.value = this.valueList[img]
+        let index = Math.floor(Math.random() * this.valueList.length)
+        this.value = this.valueList[index]
+        this.point = index
       }
     },
     start () {
