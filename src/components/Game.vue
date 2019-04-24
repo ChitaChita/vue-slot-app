@@ -20,7 +20,7 @@ export default {
   // SlotBaseの戻り値を一時的に保持するために使用する
   data () {
     return {
-      result: [100,100,100]
+      result: []
     }
   },
   components: {
