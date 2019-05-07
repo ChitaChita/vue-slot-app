@@ -22,5 +22,6 @@ export default {
   text-align: center;
   background-color: greenyellow;
   font-size: 2em;
+  border-radius: 10px;
 }
 </style>

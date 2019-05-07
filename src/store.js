@@ -38,7 +38,7 @@ const store = new Vuex.Store({
     addResult (state, {result}) {
       state.result.push({
         id: state.nextId,
-        slotValues: result
+        slotValues: result.reduce((p, x) => p + x, 0)
       })
 
       // 次の追加に備えてIDを更新

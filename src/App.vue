@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Vue.jsでスロット</h1>
+    <h1>Welcome! Slot Game!!</h1>
     <ul class="nav">
         <li><router-link to="./">Game</router-link></li>
         <li><router-link to="./score">Score</router-link></li>
@@ -18,7 +18,7 @@ export default {
 <style>
 /* Common */
 html {
-    font-size: 62.5%
+    font-size: 80.5%
 }
 *, *::before, *::after {
     box-sizing: border-box;
