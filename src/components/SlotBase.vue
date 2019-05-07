@@ -1,7 +1,9 @@
 <template>
   <div class="slot-form">
     <!-- <input v-bind:id="slotvalue" class="slot-view" type="text" v-model="value"> -->
-    <img class="slot-view" v-bind:id="slotvalue" :src="value" :point="point"/>
+    <transition name="base" v-on:click="$emit('slot-start', true)">
+      <img class="slot-view" v-bind:id="slotvalue" :src="value" :point="point" />
+    </transition>
     <input class="slot-button" v-bind:disabled="!canStart" type="button" value="STOP" v-on:click="onSelected">
   </div>
 </template>
@@ -84,6 +86,7 @@ export default {
   width: 11em;
   height: 13em;
   border: 1px solid black;
+  border-radius: 5px;
 }
 .slot-view {
   display: block;
@@ -96,11 +99,28 @@ export default {
   display: block;
   margin: 0 auto;
   text-align: center;
-  width: 100px;
+  width: 140px;
   background-color: lightblue;
+  position: absolute;
+  border-radius: 10px;
 }
 .button-disabled {
   pointer-events : none;
   background-color: grey;
 }
+.base-enter-active,
+.base-leave-active {
+  transition: all 1s;
+}
+.base-enter,
+.base-leave-active {
+  opacity: 0;
+}
+.base-enter {
+  transform: translateY(31px);
+}
+.base-leave-active {
+  transform: translateY(-31px);
+}
+
 </style>

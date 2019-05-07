@@ -42,7 +42,7 @@ export default {
   padding: 20px 30px;
   background-color: #fff;
   border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+  box-shadow: 0 2px 8px rgba(17, 13, 13, 0.33);
   transition: all .5s ease;
   font-family: Helvetica, Arial, sans-serif;
   color: red;
